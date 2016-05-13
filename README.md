@@ -4,9 +4,9 @@
 
 ## 文章结构
 
-- MVC(#mvc)
-- MVP(#mvp)
-- MVP + Dagger(#mvpdagger2)
+- [MVC](#mvc)
+- [MVP](#mvp)
+- [MVP + Dagger](#mvpdagger2)
 
 分别用MVC、MVP、MVP+Dagger2做同一个功能，并通过功能的变更来看三种框架如何更改
 （如果这里能带上测试代码就好了，可惜我不会。。。）

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ThreeArchitecture</string>
+    <string name="query">查询</string>
+    <string name="phone_error">手机号格式错误</string>
+    <string name="pls_wait">请等待 ...</string>
+</resources>

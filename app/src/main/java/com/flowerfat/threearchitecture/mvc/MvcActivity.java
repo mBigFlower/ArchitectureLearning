@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,8 +32,6 @@ public class MvcActivity extends AppCompatActivity {
 
     @BindView(R.id.architecture_et)
     EditText mPhoneEt;
-    @BindView(R.id.architecture_bt)
-    Button mQueryBt;
     @BindView(R.id.architecture_tv)
     TextView mResultTv;
     @BindView(R.id.architecture_lv)
@@ -68,7 +65,7 @@ public class MvcActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mvc);
+        setContentView(R.layout.activity_architecture);
         ButterKnife.bind(this);
         // 第三部分新增的俩
         init();
@@ -116,17 +113,17 @@ public class MvcActivity extends AppCompatActivity {
     }
 
     /* 第二部分的修改所添加的代码在下面 */
-    private TelInfo mTelInfo;
+    private TelInfoMvc mTelInfoMvc;
 
     private void showBeautifulResult(String response) {
-        mTelInfo = new Gson().fromJson(response, TelInfo.class);
+        mTelInfoMvc = new Gson().fromJson(response, TelInfoMvc.class);
         String result;
         // 判断查询结果
-        if (mTelInfo.getErrNum() == 0) {
-            result = mTelInfo.getRetData().getProvince() + "  " + mTelInfo.getRetData().getCarrier();
-            doAboutHistory(mTelInfo.getRetData().getTelString() + "  --  " + result);
+        if (mTelInfoMvc.getErrNum() == 0) {
+            result = mTelInfoMvc.getRetData().getProvince() + "  " + mTelInfoMvc.getRetData().getCarrier();
+            doAboutHistory(mTelInfoMvc.getRetData().getTelString() + "  --  " + result);
         } else {
-            result = mTelInfo.getErrMsg();
+            result = mTelInfoMvc.getErrMsg();
         }
         mResultTv.setText(result);
     }

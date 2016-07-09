@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.flowerfat.threearchitecture.mvc.MvcActivity;
-import com.flowerfat.threearchitecture.mvp.MvpActivity;
+import com.flowerfat.threearchitecture.mvp.view.MvpActivity;
 import com.flowerfat.threearchitecture.mvp_dagger2.MvpDaggerActivity;
 import com.flowerfat.threearchitecture.mvp__plus.MvpPlusActivity;
 

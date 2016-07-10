@@ -30,9 +30,9 @@
 ## 功能描述
 
 1. 第一部分：领导要做一个简单的 手机号归属地查询 的功能，在EditText中输入手机号，点击Button查询，结果返回到下面的TextView
-2. 第二部分：领导说你这个返回的显示太丑了啊，把返回值整理下再显示。
+2. 第二部分：领导说你这个查询结果的显示太丑了啊，把结果内容整理下再显示。
 3. 第三部分：领导又说了，你加个历史记录嘛，把查过的存起来，然后显示在下面，可以滑动的那种条目。
-4. 第四部分：领导又说了，你这个历史记录加一个清空按钮嘛，然后我输入的时候，把下面的记录列表匹配下，万一我以前查过这个号呢？
+4. 第四部分：领导又说了，你这个历史记录加一个清空按钮嘛；然后我输入的时候，把下面的记录列表匹配下，万一我以前查过这个号呢？
 
 What a fuc*， 有啥话不能一气儿说完，每次就知道bb。好吧，我承认我在存心黑领导。
 功能就暂且这么多吧，不然这篇blog有点长。
@@ -43,7 +43,7 @@ What a fuc*， 有啥话不能一气儿说完，每次就知道bb。好吧，我
 
 MVC的所有代码全都在 MvcActivity 里
 
-#### 第一部分
+#### 第一部分 查询
 
 主要代码的如下：
 
@@ -85,7 +85,7 @@ MVC的所有代码全都在 MvcActivity 里
 
 #### 第二部分 让结果更好看
 
-这里我们需要创建一个Bean，名为 TelInfo.class，并引入gson来解析服务端返回的Json数据，方便。
+这里我们需要创建一个Bean，名为 TelInfoMvc.class，并引入gson来解析服务端返回的Json数据，方便。
 
     public class TelInfo {
         int errNum;
@@ -111,15 +111,15 @@ MVC的所有代码全都在 MvcActivity 里
     ...
 
     /* 第二部分的修改所添加的代码在下面 */
-    private TelInfo mTelInfo;
+    private TelInfoMvc mTelInfoMvc;
     private void showBeautifulResult(String response) {
-        mTelInfo = new Gson().fromJson(response, TelInfo.class);
+        mTelInfoMvc = new Gson().fromJson(response, TelInfo.class);
         String result;
         // 判断查询结果
-        if (mTelInfo.getErrNum() != 0) {
-            result = mTelInfo.getRetData().getProvince() + "\n" + mTelInfo.getRetData().getCarrier();
+        if (mTelInfoMvc.getErrNum() != 0) {
+            result = mTelInfoMvc.getRetData().getProvince() + "\n" + mTelInfoMvc.getRetData().getCarrier();
         } else {
-            result = mTelInfo.getErrMsg();
+            result = mTelInfoMvc.getErrMsg();
         }
         mResultTv.setText(result);
     }
@@ -171,14 +171,14 @@ MVC的所有代码全都在 MvcActivity 里
 
 再来处理网络请求之后的部分。我们要在得到正确归属地后，添加存储的部分，然后更新Adapter。更改的地方如下：
 
-    if (mTelInfo.getErrNum() != 0) {
+    if (mTelInfoMvc.getErrNum() != 0) {
         //    省份后的 \n 变成了 空格。是为了ListView的条目显示。当初加上\n，是因为没有ListView，我们要让
         // Textview显示起来更好看
-        result = mTelInfo.getRetData().getProvince() + "  " + mTelInfo.getRetData().getCarrier();
+        result = mTelInfoMvc.getRetData().getProvince() + "  " + mTelInfoMvc.getRetData().getCarrier();
         // 下面这个是新增的哈
-        doAboutHistory(mTelInfo.getRetData().getTelString()+"  --  "+result);
+        doAboutHistory(mTelInfoMvc.getRetData().getTelString()+"  --  "+result);
     } else {
-        result = mTelInfo.getErrMsg();
+        result = mTelInfoMvc.getErrMsg();
     }
 
     public void doAboutHistory(String result) {
@@ -364,7 +364,7 @@ MVC的所有代码全都在 MvcActivity 里
 
 因为UI没有变化，所以只需要修改Model即可，修改如下：
 
-
+    未完待续 。。。
 
 
 

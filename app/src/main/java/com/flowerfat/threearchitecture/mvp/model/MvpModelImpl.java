@@ -3,13 +3,15 @@ package com.flowerfat.threearchitecture.mvp.model;
 import com.flowerfat.threearchitecture.Contracts;
 import com.flowerfat.threearchitecture.SpManager;
 import com.flowerfat.threearchitecture.mvc.TelInfoMvc;
-import com.flowerfat.volleyutil.callback.StringCallback;
-import com.flowerfat.volleyutil.main.VolleyUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 /**
  * Created by 明明大美女 on 2016/5/14.
@@ -30,19 +32,20 @@ public class MvpModelImpl implements IMvpModel {
      */
     @Override
     public void httpQueryPhoneLocation(String phone, final GetPhoneDetailsCallback callback) {
-        VolleyUtils.getInstance()
-                .get(Contracts.Url)
+        OkHttpUtils.get()
+                .url(Contracts.Url)
+                .addParams("tel", phone)
                 .addHeader("apikey", Contracts.Header)
-                .addParam("tel", phone)
-                .Go(new StringCallback() {
+                .build()
+                .execute(new StringCallback() {
                     @Override
-                    public void onSuccess(String response) {
-                        showBeautifulResult(response, callback);
+                    public void onError(Call call, Exception e, int id) {
+                        callback.Error(e.toString());
                     }
 
                     @Override
-                    public void onError(String e) {
-                        callback.Error(e);
+                    public void onResponse(String response, int id) {
+                        showBeautifulResult(response, callback);
                     }
                 });
     }

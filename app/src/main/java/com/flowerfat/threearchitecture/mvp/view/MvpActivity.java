@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.flowerfat.threearchitecture.R;
 import com.flowerfat.threearchitecture.Util;
+import com.flowerfat.threearchitecture.mvp.model.MvpModelImpl;
 import com.flowerfat.threearchitecture.mvp.presenter.MvpPresenter;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class MvpActivity extends AppCompatActivity implements IMvpView {
         setContentView(R.layout.activity_architecture);
         ButterKnife.bind(this);
 
-        mPresenter = new MvpPresenter(this) ;
+        mPresenter = new MvpPresenter(this, new MvpModelImpl()) ;
 
         init();
         // 第四部分增加一个
@@ -63,12 +64,7 @@ public class MvpActivity extends AppCompatActivity implements IMvpView {
 
     @OnClick(R.id.architecture_bt)
     void queryBt() {
-        mPresenter.queryPhone();
-    }
-
-    @Override
-    public String getPhoneStr() {
-        return  mPhoneEt.getText().toString().trim();
+        mPresenter.queryPhone(mPhoneEt.getText().toString().trim());
     }
 
     /* 第四部分代码如下 清空历史，增加edittext的筛选*/

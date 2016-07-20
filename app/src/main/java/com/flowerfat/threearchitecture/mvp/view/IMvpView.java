@@ -10,7 +10,6 @@ public interface IMvpView {
     void dismissProgressDialog();
     void showReslut(String result);
     void showPhoneError();
-    String getPhoneStr();
     void addHistory(String oneHistory);
     void showHistory(List<String> historyList);
 }

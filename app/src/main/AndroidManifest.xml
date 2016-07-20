@@ -10,7 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/ApplicationTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         <activity android:name=".mvc.MvcActivity" />
         <activity android:name=".mvp.view.MvpActivity" />
         <activity android:name=".mvp_dagger2.MvpDaggerActivity" />
-        <activity android:name=".mvp__plus.MvpPlusActivity"></activity>
+        <activity android:name=".mvp__plus.MvpPlusActivity"/>
     </application>
 
 </manifest>

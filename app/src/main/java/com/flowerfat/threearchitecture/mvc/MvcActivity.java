@@ -16,10 +16,10 @@ import com.flowerfat.threearchitecture.Contracts;
 import com.flowerfat.threearchitecture.R;
 import com.flowerfat.threearchitecture.SpManager;
 import com.flowerfat.threearchitecture.Util;
-import com.flowerfat.volleyutil.callback.StringCallback;
-import com.flowerfat.volleyutil.main.VolleyUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 public class MvcActivity extends AppCompatActivity {
 
@@ -93,21 +94,22 @@ public class MvcActivity extends AppCompatActivity {
      */
     private void httpQueryPhoneLocation(String phone) {
         progressShow();
-        VolleyUtils.getInstance()
-                .get(Contracts.Url)
+        OkHttpUtils.get()
+                .url(Contracts.Url)
+                .addParams("tel", phone)
                 .addHeader("apikey", Contracts.Header)
-                .addParam("tel", phone)
-                .Go(new StringCallback() {
+                .build()
+                .execute(new StringCallback() {
                     @Override
-                    public void onSuccess(String response) {
+                    public void onError(Call call, Exception e, int id) {
                         progressDismiss();
-                        showBeautifulResult(response);
+                        mResultTv.setText(e.toString());
                     }
 
                     @Override
-                    public void onError(String e) {
+                    public void onResponse(String response, int id) {
                         progressDismiss();
-                        mResultTv.setText(e);
+                        showBeautifulResult(response);
                     }
                 });
     }

@@ -18,13 +18,12 @@ public class MvpPresenter {
      * 这个构造方法：在activity调用的时候，把其view的接口传递过来，让次presenter持有，方便交互
      * @param mIMvpView
      */
-    public MvpPresenter(IMvpView mIMvpView) {
+    public MvpPresenter(IMvpView mIMvpView, MvpModelImpl model) {
         this.mIMvpView = mIMvpView;
-        this.mModel = new MvpModelImpl();
+        this.mModel = model;
     }
 
-    public void queryPhone(){
-        String phone = mIMvpView.getPhoneStr();
+    public void queryPhone(String phone){
         if (phone.length() != 11 || !phone.startsWith("1")) {
             mIMvpView.showPhoneError();
             return;

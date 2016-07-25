@@ -25,7 +25,10 @@ when(i.next()).thenThrow(new RuntimeException())
 
 ![](http://img.blog.csdn.net/20160203090228944)
 
+pdf版本请[点击这里](https://github.com/mBigFlower/ArchitectureLearning/blob/master/img/espresso-cheat-sheet-2.1.0.pdf)
+
 相关文章：
 
 - [https://testerhome.com/topics/4314](https://testerhome.com/topics/4314)
+- [https://testerhome.com/canty](https://testerhome.com/canty)
 

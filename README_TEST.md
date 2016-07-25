@@ -19,3 +19,13 @@ when(i.next()).thenThrow(new RuntimeException())
 。。。
 
 **ArgumentCaptor** 参数捕获，对处理异步回调有用
+
+
+### Espresso
+
+![](http://img.blog.csdn.net/20160203090228944)
+
+相关文章：
+
+- [https://testerhome.com/topics/4314](https://testerhome.com/topics/4314)
+

@@ -11,6 +11,8 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -35,7 +37,7 @@ ext {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     // 下面两个是butterknife的
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
@@ -52,17 +54,20 @@ dependencies {
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.ext.junitVersion"
     testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-//    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
-//
-//    // Android Testing Support Library's runner and rules
-//    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-//    androidTestCompile "com.android.support.test:rules:$rootProject.ext.runnerVersion"
+    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+
+    // Android Testing Support Library's runner and rules
+    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestCompile "com.android.support.test:rules:$rootProject.ext.runnerVersion"
 
     // Dependencies for Android unit tests
     androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
     androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
     androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
     androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+
+//    testCompile "org.robolectric:robolectric:$rootProject.ext.robolectricVersion"
+
     // Espresso UI Testing
     androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestCompile ("com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion")

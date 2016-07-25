@@ -28,27 +28,55 @@ public class EspressoTest {
         onView(withId(id)).perform(ViewActions.click());
     }
 
+    /**
+     * 验证某text是否显示 非Adapter（非Listview、Gridview、Spinner等）
+     * @param text
+     */
     public void textDisVerify(String text){
         onView(withText(text)).check(matches(isDisplayed()));
     }
+    /**
+     * 验证某id对应的text是否显示 非Adapter（非Listview、Gridview、Spinner等）
+     * @param text
+     */
     public void textWithIdVerify(@IdRes final int id, String text){
         onView(withId(id)).check(matches(withText(text)));
     }
 
+    /**
+     * 验证toast
+     * @param activity
+     * @param textRes
+     */
     public void toastTextVerify(@NonNull Activity activity, int textRes){
         toastTextVerify(activity, ArchApplication.get().getString(textRes));
     }
-
+    /**
+     * 验证toast
+     * @param activity
+     * @param text
+     */
     public void toastTextVerify(@NonNull Activity activity, String text){
         onView(withText(text))
                 .inRoot(withDecorView(not(activity.getWindow().getDecorView())))
                 .check(matches(isDisplayed()));
     }
 
+    /**
+     * 模拟EditText输入
+     * @param id
+     * @param inputStr
+     */
     public void editInput(@IdRes final int id, String inputStr){
         onView(withId(id)).perform(typeText(inputStr), closeSoftKeyboard());
     }
 
+    /**
+     * 模拟EditText的输入
+     * @param id
+     * @param inputStr
+     * @param isClearBefore 是否清空之前的输入
+     */
     public void editInput(@IdRes final int id, String inputStr, boolean isClearBefore){
         if(isClearBefore)
             onView(withId(id)).perform(clearText(), typeText(inputStr), closeSoftKeyboard());
@@ -56,6 +84,10 @@ public class EspressoTest {
             onView(withId(id)).perform(typeText(inputStr), closeSoftKeyboard());
     }
 
+    /**
+     * 清空EditText的内容
+     * @param id
+     */
     public void editClear(@IdRes final int id){
         onView(withId(id))
                 .perform(ViewActions.click(), clearText(), closeSoftKeyboard());

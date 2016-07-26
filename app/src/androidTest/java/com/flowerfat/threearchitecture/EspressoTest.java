@@ -23,11 +23,13 @@ import static org.hamcrest.core.IsNot.not;
  * Created by 明明大美女 on 2016/7/24.
  */
 public class EspressoTest {
-
+    /**
+     * 点击，根据Id找到控件
+     * @param id
+     */
     public void click(@IdRes final int id){
         onView(withId(id)).perform(ViewActions.click());
     }
-
     /**
      * 验证某text是否显示 非Adapter（非Listview、Gridview、Spinner等）
      * @param text
@@ -42,7 +44,6 @@ public class EspressoTest {
     public void textWithIdVerify(@IdRes final int id, String text){
         onView(withId(id)).check(matches(withText(text)));
     }
-
     /**
      * 验证toast
      * @param activity
@@ -61,7 +62,6 @@ public class EspressoTest {
                 .inRoot(withDecorView(not(activity.getWindow().getDecorView())))
                 .check(matches(isDisplayed()));
     }
-
     /**
      * 模拟EditText输入
      * @param id
@@ -70,7 +70,6 @@ public class EspressoTest {
     public void editInput(@IdRes final int id, String inputStr){
         onView(withId(id)).perform(typeText(inputStr), closeSoftKeyboard());
     }
-
     /**
      * 模拟EditText的输入
      * @param id
@@ -83,7 +82,6 @@ public class EspressoTest {
         else
             onView(withId(id)).perform(typeText(inputStr), closeSoftKeyboard());
     }
-
     /**
      * 清空EditText的内容
      * @param id
@@ -92,7 +90,6 @@ public class EspressoTest {
         onView(withId(id))
                 .perform(ViewActions.click(), clearText(), closeSoftKeyboard());
     }
-
     /* 给 TextView 设置一个初值，方便后面的验证用
      * 不过貌似，每次验证的时候，都会给清空，不用我们手动做这件事
      * 不过这个SetTextAction是一个自定义ViewAction的例子，哈哈哈 */

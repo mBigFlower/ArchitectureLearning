@@ -60,7 +60,7 @@ public class MvpActivityTest extends EspressoTest{
         IdlingResource idlingResource = new EspressoDelay(mvpActivity);
         Espresso.registerIdlingResources(idlingResource);
         //等待后台ListView加载完数据后执行后面的代码
-        Espresso.registerIdlingResources(idlingResource);
+        Espresso.unregisterIdlingResources(idlingResource);
 
         textDisVerify("15828433284  --  四川  四川移动");
         textDisVerify("四川  四川移动");

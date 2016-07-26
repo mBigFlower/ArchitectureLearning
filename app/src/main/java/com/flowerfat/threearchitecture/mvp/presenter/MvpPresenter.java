@@ -1,5 +1,7 @@
 package com.flowerfat.threearchitecture.mvp.presenter;
 
+import android.support.annotation.NonNull;
+
 import com.flowerfat.threearchitecture.mvp.model.IMvpModel;
 import com.flowerfat.threearchitecture.mvp.model.MvpModelImpl;
 import com.flowerfat.threearchitecture.mvp.view.IMvpView;
@@ -23,7 +25,7 @@ public class MvpPresenter {
         this.mModel = model;
     }
 
-    public void queryPhone(String phone){
+    public void queryPhone(@NonNull String phone){
         if (phone.length() != 11 || !phone.startsWith("1")) {
             mIMvpView.showPhoneError();
             return;

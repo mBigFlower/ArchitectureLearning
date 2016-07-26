@@ -19,7 +19,7 @@
 
 第一部分：领导要做一个简单的 手机号归属地查询 的功能，在EditText中输入手机号，点击Button查询，结果返回到下面的TextView
 
-**View**
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)**
 
 a. Toast显示EditText输入错误
 
@@ -27,11 +27,11 @@ b. 网络请求中，ProgressDialog的显示与取消显示
 
 c. 查询结果的显示
 
-**Model**
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)**
 
 a. 网络请求，并返回查询结果
 
-**Presenter**
+**[Presenter](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/presenter/MvpPresenter.java)**
 
 a. 判断View传过来要查询的手机号格式，手机号错误：调用View的Toast显示；手机号正确则调用Model层的网络请求，并处理回调
 
@@ -49,7 +49,7 @@ b. 增加showBeautifulResult函数，处理网络请求的返回结果。并将B
 
 历史记录大家应该都不陌生。我们分别来看三层都添加了哪些：
 
-**View** 改动不大，仅仅是增加了一个ListView
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 改动不大，仅仅是增加了一个ListView
 
 a. Toast显示EditText输入错误
 
@@ -57,21 +57,21 @@ b. 网络请求中，ProgressDialog的显示与取消显示
 
 c. 查询结果的显示
 
-d. *增加历史的显示（把数据显示到ListView中）; 至于Adapter就不说了*
+　d. 增加历史的显示（把数据显示到ListView中）; 至于Adapter就不说了
 
-**Model** 此项增加的相当于数据库的操作：增 和 查
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)** 此项增加的相当于数据库的操作：增 和 查
 
 a. 网络请求，并返回查询结果
 
-b. *增：将网络请求后的数据，判断不是重复的，便保存到本地*
+　b. 增：将网络请求后的数据，判断不是重复的，便保存到本地
 
-c. 查：获取本地历史（每次打开应用的时候，需要获取）
+　c. 查：获取本地历史（每次打开应用的时候，需要获取）
 
-**Presenter** 调度上面View和Model增加的内容
+**[Presenter](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/presenter/MvpPresenter.java)** 调度上面View和Model增加的内容
 
 a. 判断View传过来要查询的手机号格式，手机号错误：调用View的Toast显示；手机号正确则调用Model层的网络请求，并处理回调
 
-b. *初始化的时候，调用Model的查询历史，并在View层显示*
+　b. 初始化的时候，调用Model的查询历史，并在View层显示
 
 --
 
@@ -83,17 +83,9 @@ b. *初始化的时候，调用Model的查询历史，并在View层显示*
 其中匹配的时候，我惊喜的发现，匹配的结果显示不需要在View层增加接口，就是之前的View-d，
 只不过其显示的内容不再是网络请求返回的结果，而是匹配后的结果
 
-**View** 改动不大，仅仅是增加了一个ListView
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 并没有变化，仅仅增加了个按钮，这里我们就不写上来了
 
-a. Toast显示EditText输入错误
-
-b. 网络请求中，ProgressDialog的显示与取消显示
-
-c. 查询结果的显示
-
-d. 增加历史的显示（把数据显示到ListView中）; 至于Adapter就不说了
-
-**Model** 此项增加的相当于数据库的操作：增 和 查
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)** 此项增加的相当于数据库的操作：删 ； 匹配：过滤List
 
 a. 网络请求，并返回查询结果
 
@@ -101,13 +93,17 @@ b. 增：将网络请求后的数据，判断不是重复的，便保存到本�
 
 c. 查：获取本地历史（每次打开应用的时候，需要获取）
 
-**Presenter** 调度上面View和Model增加的内容
+　d. 删：清空本地历史
+
+　e. 匹配：filterHistory。 将本地历史的List进行过滤后，把结果通过Presenter返回给View显示
+
+**[Presenter](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/presenter/MvpPresenter.java)** 改动不大
 
 a. 判断View传过来要查询的手机号格式，手机号错误：调用View的Toast显示；手机号正确则调用Model层的网络请求，并处理回调
 
 b. 初始化的时候，调用Model的查询历史，并在View层显示
 
-
+　 c. 增加了个filter的中介函数，将Model过滤后的结果，返回给View显示
 
 
 
@@ -118,7 +114,7 @@ b. 初始化的时候，调用Model的查询历史，并在View层显示
 
 #### 第一部分
 
-**View**:
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)**:
 
     private MvpPresenter mPresenter ;
 

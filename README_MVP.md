@@ -19,7 +19,7 @@
 
 第一部分：领导要做一个简单的 手机号归属地查询 的功能，在EditText中输入手机号，点击Button查询，结果返回到下面的TextView
 
-**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)**
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/view/MvpActivity.java)**
 
 a. Toast显示EditText输入错误
 
@@ -27,7 +27,7 @@ b. 网络请求中，ProgressDialog的显示与取消显示
 
 c. 查询结果的显示
 
-**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)**
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)**
 
 a. 网络请求，并返回查询结果
 
@@ -49,7 +49,7 @@ b. 增加showBeautifulResult函数，处理网络请求的返回结果。并将B
 
 历史记录大家应该都不陌生。我们分别来看三层都添加了哪些：
 
-**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 改动不大，仅仅是增加了一个ListView
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/view/MvpActivity.java)** 改动不大，仅仅是增加了一个ListView
 
 a. Toast显示EditText输入错误
 
@@ -59,7 +59,7 @@ c. 查询结果的显示
 
 　d. 增加历史的显示（把数据显示到ListView中）; 至于Adapter就不说了
 
-**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)** 此项增加的相当于数据库的操作：增 和 查
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 此项增加的相当于数据库的操作：增 和 查
 
 a. 网络请求，并返回查询结果
 
@@ -83,9 +83,9 @@ a. 判断View传过来要查询的手机号格式，手机号错误：调用View
 其中匹配的时候，我惊喜的发现，匹配的结果显示不需要在View层增加接口，就是之前的View-d，
 只不过其显示的内容不再是网络请求返回的结果，而是匹配后的结果
 
-**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 并没有变化，仅仅增加了个按钮，这里我们就不写上来了
+**[View](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/view/MvpActivity.java)** 并没有变化，仅仅增加了个按钮，这里我们就不写上来了
 
-**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl)** 此项增加的相当于数据库的操作：删 ； 匹配：过滤List
+**[Model](https://github.com/mBigFlower/architectureLearning/blob/master/app/src/main/java/com/flowerfat/threearchitecture/mvp/model/MvpModelImpl.java)** 此项增加的相当于数据库的操作：删 ； 匹配：过滤List
 
 a. 网络请求，并返回查询结果
 

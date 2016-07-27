@@ -16,8 +16,8 @@
 
 package com.flowerfat.threearchitecture.mvp__plus;
 
-public interface BasePresenter {
+public interface BaseView<T> {
 
-    void start();
+    void setPresenter(T presenter);
 
 }

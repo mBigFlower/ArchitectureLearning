@@ -7,7 +7,7 @@ import android.view.View;
 import com.flowerfat.threearchitecture.mvc.MvcActivity;
 import com.flowerfat.threearchitecture.mvp.view.MvpActivity;
 import com.flowerfat.threearchitecture.mvp_dagger2.MvpDaggerActivity;
-import com.flowerfat.threearchitecture.mvp__plus.MvpPlusActivity;
+import com.flowerfat.threearchitecture.mvp__plus.queryphone.MvpPlusActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -21,7 +21,7 @@
         <activity android:name=".mvc.MvcActivity" />
         <activity android:name=".mvp.view.MvpActivity" />
         <activity android:name=".mvp_dagger2.MvpDaggerActivity" />
-        <activity android:name=".mvp__plus.MvpPlusActivity"/>
+        <activity android:name=".mvp__plus.queryphone.MvpPlusActivity"/>
     </application>
 
 </manifest>

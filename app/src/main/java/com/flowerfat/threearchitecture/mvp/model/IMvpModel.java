@@ -14,7 +14,7 @@ public interface IMvpModel {
         void Error(String error);
     }
 
-    void doResult(String result);
+    String doAboutHistory(String result);
     List<String> getHistoryList();
     List<String> filterHistory(String inputStr);
     void clearHistory();

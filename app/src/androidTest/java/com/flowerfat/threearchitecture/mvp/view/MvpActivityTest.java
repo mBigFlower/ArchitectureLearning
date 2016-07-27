@@ -56,7 +56,6 @@ public class MvpActivityTest extends EspressoTest{
         editInput(R.id.architecture_et, "15828433284");
         click(R.id.architecture_bt);
 
-
         IdlingResource idlingResource = new EspressoDelay(mvpActivity);
         Espresso.registerIdlingResources(idlingResource);
         //等待后台ListView加载完数据后执行后面的代码

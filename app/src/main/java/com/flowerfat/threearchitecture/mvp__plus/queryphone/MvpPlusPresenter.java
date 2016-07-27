@@ -16,7 +16,7 @@ public class MvpPlusPresenter implements MvpPlusContract.Presenter {
         this.mMvpPlusView = mMvpPlusView;
         this.mMvpPlusModel = mMvpPlusModel;
 
-        this.mMvpPlusView.setPresenter(this);
+//        this.mMvpPlusView.setPresenter(this);
     }
 
     @Override

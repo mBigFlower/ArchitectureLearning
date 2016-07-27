@@ -63,6 +63,7 @@ public class MvpModelImpl implements IMvpModel {
         }
     }
 
+    @Override
     public String doAboutHistory(String result) {
         if (!isThisHistoryExist(result)) {
             // 保存
@@ -87,11 +88,6 @@ public class MvpModelImpl implements IMvpModel {
             }
         }
         return false;
-    }
-
-    @Override
-    public void doResult(String result) {
-
     }
 
     @Override

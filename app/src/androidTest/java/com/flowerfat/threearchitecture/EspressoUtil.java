@@ -3,6 +3,8 @@ package com.flowerfat.threearchitecture;
 import android.app.Activity;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.action.ViewActions;
 
 import com.flowerfat.threearchitecture.util.SetTextAction;
@@ -96,5 +98,9 @@ public class EspressoUtil {
     public void setText(@IdRes final int id, @NonNull String text){
         onView(withId(id))
                 .perform(actionWithAssertions(new SetTextAction(text)));
+    }
+
+    public String getStringRes(@StringRes final int StringResId){
+        return InstrumentationRegistry.getTargetContext().getString(StringResId);
     }
 }

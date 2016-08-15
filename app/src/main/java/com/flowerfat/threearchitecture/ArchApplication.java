@@ -28,6 +28,7 @@ public class ArchApplication extends Application {
                 .build();
 
         OkHttpUtils.initClient(okHttpClient);
+
     }
 
     public static ArchApplication get(){

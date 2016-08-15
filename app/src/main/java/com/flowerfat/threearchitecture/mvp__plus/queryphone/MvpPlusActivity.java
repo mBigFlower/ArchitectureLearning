@@ -19,9 +19,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.View{
+public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.View {
 
-    private MvpPlusContract.Presenter mPresenter ;
+    private MvpPlusContract.Presenter mPresenter;
     // dialog相关的显示
     private ProgressDialog mProgressDialog;
 
@@ -42,9 +42,10 @@ public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.Vie
     public int initLayout() {
         return R.layout.activity_architecture;
     }
+
     @Override
     public void init() {
-        mPresenter = new MvpPlusPresenter(this, new MvpPlusModel()) ;
+        mPresenter = new MvpPlusPresenter(this, new MvpPlusModel());
 
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         mListView.setAdapter(mAdapter);
@@ -56,8 +57,8 @@ public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.Vie
 
     @OnClick(R.id.architecture_bt)
     void queryBt() {
-        if(mPresenter != null)
-        mPresenter.queryPhone(mPhoneEt.getText().toString().trim());
+        if (mPresenter != null)
+            mPresenter.queryPhone(mPhoneEt.getText().toString().trim());
     }
 
     @OnClick(R.id.architecture_clearTv)
@@ -77,7 +78,7 @@ public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.Vie
 
     @Override
     public void dismissProgressDialog() {
-        if(mProgressDialog != null) {
+        if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
     }
@@ -101,7 +102,7 @@ public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.Vie
     @Override
     public void showHistory(List<String> historyList) {
         mAdapter.clear();
-        if(historyList != null)
+        if (historyList != null)
             mAdapter.addAll(historyList);
     }
 
@@ -120,7 +121,7 @@ public class MvpPlusActivity extends BaseActivity implements MvpPlusContract.Vie
 
             @Override
             public void onTextChanged(CharSequence searchedStr, int i, int i1, int i2) {
-                if(searchedStr.length() != 11) {
+                if (searchedStr.length() != 11) {
                     mResultTv.setText("");
                 }
                 mPresenter.filterHistory(searchedStr.toString());

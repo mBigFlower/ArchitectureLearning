@@ -22,7 +22,7 @@ import static org.hamcrest.core.IsNot.not;
 /**
  * Created by 明明大美女 on 2016/7/24.
  */
-public class EspressoTest {
+public class EspressoUtil {
     /**
      * 点击，根据Id找到控件
      * @param id
@@ -74,7 +74,7 @@ public class EspressoTest {
      * 模拟EditText的输入
      * @param id
      * @param inputStr
-     * @param isClearBefore 是否清空之前的输入
+     * @param isClearBefore 是否先清空，再输入
      */
     public void editInput(@IdRes final int id, String inputStr, boolean isClearBefore){
         if(isClearBefore)

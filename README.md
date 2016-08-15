@@ -23,7 +23,7 @@
 - [MVP + Dagger](#mvpdagger2)
 
 分别用MVC、MVP、MVP+Dagger2做同一个功能，并通过功能的变更来看三种框架如何更改
-（PS：如果这里能带上测试代码就好了，可惜我不会。但下一步绝对是研究测试code）
+（PS：MVP会添加测试，目前View和Presenter层都加了测试代码，初学者那种。至于Model层，还在研究）
 
 ![包结构](https://raw.githubusercontent.com/mBigFlower/ArchitectureLearning/master/img/package.png)
 

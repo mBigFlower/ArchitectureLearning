@@ -40,12 +40,12 @@ public class MvpActivityUtil extends EspressoUtil {
     @Test
     public void inputError() throws Exception {
         editInput(R.id.architecture_et, "1");
-        click(R.id.architecture_bt);
+        clickWithId(R.id.architecture_bt);
         // 这里用到了检测Toast的内容。里面需要用到activity。 这个acitivyt是从rule中获取的，在@before里
         toastTextVerify(mvpActivity, "手机号格式错误");
 
         editInput(R.id.architecture_et, "15828433284");
-        click(R.id.architecture_bt);
+        clickWithId(R.id.architecture_bt);
         toastTextVerify(mvpActivity, "手机号格式错误");
         // 这里用到了 clearText() -- 清空edittext
         editClear(R.id.architecture_et);
@@ -54,7 +54,7 @@ public class MvpActivityUtil extends EspressoUtil {
     @Test
     public void inputSuccess() throws Exception {
         editInput(R.id.architecture_et, "15828433284");
-        click(R.id.architecture_bt);
+        clickWithId(R.id.architecture_bt);
 
         IdlingResource idlingResource = new EspressoDelay(mvpActivity);
         Espresso.registerIdlingResources(idlingResource);

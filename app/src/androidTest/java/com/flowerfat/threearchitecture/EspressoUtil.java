@@ -23,14 +23,23 @@ import static org.hamcrest.core.IsNot.not;
 
 /**
  * Created by 明明大美女 on 2016/7/24.
+ *
+ * TODO 1.intent ; 2.onData for listview ; 3. ...
  */
 public class EspressoUtil {
     /**
      * 点击，根据Id找到控件
      * @param id
      */
-    public void click(@IdRes final int id){
+    public void clickWithId(@IdRes final int id){
         onView(withId(id)).perform(ViewActions.click());
+    }
+    /**
+     * 点击，根据字符串str找到控件
+     * @param str
+     */
+    public void clickWithText(@NonNull String str){
+        onView(withText(str)).perform(ViewActions.click());
     }
     /**
      * 验证某text是否显示 非Adapter（非Listview、Gridview、Spinner等）

@@ -24,7 +24,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MvpDaggerActivity extends BaseActivity implements MvpPlusContract.View{
-
     @Inject
     MvpDaggerPresenter mPresenter;
     // dialog相关的显示

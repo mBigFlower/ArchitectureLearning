@@ -20,7 +20,8 @@
 
 - [MVC](https://github.com/mBigFlower/ArchitectureLearning/blob/master/README_MVC.md)
 - [MVP](https://github.com/mBigFlower/ArchitectureLearning/blob/master/README_MVP.md)
-- [MVP + Dagger](#mvpdagger2)
+- [MVP + Dagger](https://github.com/mBigFlower/ArchitectureLearning/blob/master/README_MVP-Dagger2.md)
+- [Test](https://github.com/mBigFlower/ArchitectureLearning/blob/master/README_TEST.md)
 
 分别用MVC、MVP、MVP+Dagger2做同一个功能，并通过功能的变更来看三种框架如何更改
 （PS：MVP会添加测试，目前View和Presenter层都加了测试代码，初学者那种。至于Model层，还在研究）

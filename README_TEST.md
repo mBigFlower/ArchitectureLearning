@@ -2,6 +2,13 @@
 
 因为是初学测试，这里仅仅是一个方法的汇总。其实当你在摸清mockito的几种方法时，你会有疑问：咋写测试啊？
 
+先来看看官方的测试包结构。摘自 [这篇文章](http://www.jianshu.com/p/389c9ae1a82c)
+
+- androidTest（UI层测试）
+- androidTestMock（UI层测试mock数据支持）
+- test（业务层单元测试）
+- mock（业务层单元测试mock数据支持）
+
 ### mockito
 
 **创建对象**，就是把new的对象，变成了mock(...)，例如：

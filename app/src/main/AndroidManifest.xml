@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.flowerfat.threearchitecture">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".ArchApplication"
@@ -12,16 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/ApplicationTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".mvc.MvcActivity" />
+        <activity android:name=".mvp.view.MvpActivity" />
+        <activity android:name=".mvp_dagger2.MvpDaggerActivity" />
+        <activity android:name=".mvp__plus.queryphone.MvpPlusActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvc.MvcActivity" />
-        <activity android:name=".mvp.view.MvpActivity" />
-        <activity android:name=".mvp_dagger2.MvpDaggerActivity" />
-        <activity android:name=".mvp__plus.queryphone.MvpPlusActivity"/>
+
     </application>
 
 </manifest>

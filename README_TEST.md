@@ -43,5 +43,5 @@
 - [https://testerhome.com/topics/4314](https://testerhome.com/topics/4314)
 - [https://testerhome.com/canty](https://testerhome.com/canty)
 
-看完相关文章后，定会有所感悟。然后我写了个类，方便更好的使用Espresso。[详见这里](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/androidTest/java/com/flowerfat/threearchitecture/EspressoUtil.java)
+看完相关文章后，一定会有所感悟。然后我写了个类，方便更好的使用Espresso。[详见这里](https://github.com/mBigFlower/ArchitectureLearning/blob/master/app/src/androidTest/java/com/flowerfat/threearchitecture/EspressoUtil.java)
 

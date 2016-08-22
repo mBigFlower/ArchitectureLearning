@@ -62,6 +62,11 @@ public class MvpDaggerActivity extends BaseActivity implements MvpPlusContract.V
 
         filter();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mPresenter.start();
     }
 
@@ -143,4 +148,5 @@ public class MvpDaggerActivity extends BaseActivity implements MvpPlusContract.V
             }
         });
     }
+
 }

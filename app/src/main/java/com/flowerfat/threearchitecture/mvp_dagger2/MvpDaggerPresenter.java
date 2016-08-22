@@ -22,6 +22,11 @@ public class MvpDaggerPresenter implements MvpPlusContract.Presenter {
         this.mMvpPlusModel = mMvpPlusModel;
     }
 
+    @Inject
+    void setupListeners() {
+        mMvpPlusView.setPresenter(this);
+    }
+
     @Override
     public void start() {
         initHistory();

@@ -44,3 +44,19 @@ What a fuc*， 有啥话不能一气儿说完，每次就知道bb。好吧，我
 - [MVP](https://github.com/mBigFlower/ArchitectureLearning/blob/master/README_MVP.md)
 - [MVP + Dagger](#mvpdagger2)
 
+# 写在后面
+
+我后来又了解了下Robolectric和Espress，好像两个用起来并不冲突，貌似可以分别用来集成测试和单元测试比较好。具体以后再说吧
+
+其实这个project已经不想再动了，是时候开始新的生活了。人都是这样，喜新厌旧，没错都这样。于是我新开了个分支，通过重构这个工程，用于学习新的东西：
+
+- RxJava
+- Retrofit
+- Repository
+
+具体看我的新的分支 refactoring
+
+
+
+
+
